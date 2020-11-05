@@ -1,0 +1,27 @@
+{
+    "name": "in-the-air-microbit2",
+    "version": "0.0.0",
+    "description": "Extension for in-the-air-microbt-2 kit",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "itr.ts",
+        "parallel.h",
+        "parallel.cpp",
+        "sg35.h",
+        "sg35.cpp",
+        "ix03.h",
+        "ix03.cpp"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
