@@ -1,16 +1,20 @@
 {
-    "name": "pxt-in-the-air-microbit2",
-    "version": "0.0.1",
-    "description": "",
+    "name": "in-the-air-microbit2",
+    "version": "0.0.0",
+    "description": "Extension for in-the-air-microbt-2 kit",
+    "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "radio": "*",
-        "microphone": "*"
+        "core": "*"
     },
     "files": [
         "README.md",
-        "main.blocks",
-        "main.ts"
+        "itr.ts",
+        "parallel.h",
+        "parallel.cpp",
+        "sg35.h",
+        "sg35.cpp",
+        "ix03.h",
+        "ix03.cpp"
     ],
     "testFiles": [
         "test.ts"
