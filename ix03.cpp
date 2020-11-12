@@ -40,7 +40,7 @@ uint8_t i2cread(uint16_t address, uint8_t reg, uint8_t *data, int len)
 #ifdef CODAL_I2C
     i2c_error_status = i2c->write((uint16_t)address, (uint8_t*)&reg, 1, true);
 #else
-    i2c_error_status = uBit.i2c.write(address, (BUFFER_TYPE)val, 1, true);
+    i2c_error_status = uBit.i2c.write(address, (BUFFER_TYPE)&val, 1, true);
 #endif
 
 #ifdef CODAL_I2C
@@ -234,9 +234,9 @@ uint8_t xIX03::readByte(uint8_t reg)
 {
     uint8_t val[1] = {reg << 3};
 #ifdef CODAL_I2C
-    uint8_t data;
+    uint8_t data[1];
 #else
-    char data;
+    char data[1];
 #endif
 
 #ifdef CODAL_I2C
@@ -249,7 +249,7 @@ uint8_t xIX03::readByte(uint8_t reg)
     uBit.i2c.write(i2cAddr, (BUFFER_TYPE)val, 1, true);
     uBit.i2c.read(i2cAddr, (BUFFER_TYPE)data, 1, false);
 #endif
-    return (uint8_t)data;
+    return (uint8_t)data[0];
 }
 
 void xIX03::writeBlock(uint8_t reg, uint8_t *val, uint8_t len)
