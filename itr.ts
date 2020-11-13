@@ -1499,7 +1499,7 @@ namespace ITR
                     {
                         onReceivedDataHandler(pm1(), pm25(), pm10())
                     }
-                    basic.pause(10)
+                    basic.pause(100)
                 }
         })
     }
