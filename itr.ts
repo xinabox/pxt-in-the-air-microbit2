@@ -238,6 +238,19 @@ namespace ITR
 
     checkSN01()
 
+    if(SN01_ACK)
+    {
+
+        startParallel(function () {
+            while (true) {
+                parseNMEA()
+                basic.pause(10)
+            }
+        })
+
+    }
+
+
     // SN01 function call end
 
     // SG35 function call start
@@ -608,7 +621,7 @@ namespace ITR
         return eCO2_;
     }
 
-    function pollSN01():void
+    /*function pollSN01():void
     {
         if(SN01_ACK)
         {
@@ -617,7 +630,7 @@ namespace ITR
                 parseNMEA()
             }
         }
-    }
+    }*/
 
     //%block="SN01 is data valid"
     //%group="SN01"
@@ -632,7 +645,6 @@ namespace ITR
     //% block="SN01 get latitude"
     //%group="SN01"
     export function getLat(): string {
-        pollSN01()
         let latitude: number = raw_lat
         let orient: string = raw_NS
         let degrees: number = Math.trunc(latitude / 100)
@@ -648,7 +660,6 @@ namespace ITR
     //% block="SN01 get longitude"
     //%group="SN01"
     export function getLon(): string {
-        pollSN01()
        let longitude: number = raw_lon
         let orient: string = raw_EW
         let degrees: number = Math.trunc(longitude / 100)
@@ -664,7 +675,6 @@ namespace ITR
     //% block="SN01 get date"
     //%group="SN01"
     export function getDate(): string {
-        pollSN01()
         let date_str: string = ""
         let date: number = raw_date
         let dd: number = Math.trunc(date / 10000)
@@ -679,7 +689,6 @@ namespace ITR
     //% block="SN01 get time"
     //%group="SN01"
     export function getTime(): string {
-        pollSN01()
         let time_str: string = ""
         let time: number = raw_time
         let hh: number = Math.trunc(time / 10000)
@@ -1518,6 +1527,5 @@ namespace ITR
     }
 
     begin()
-
 
 }
