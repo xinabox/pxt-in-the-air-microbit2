@@ -8,13 +8,7 @@
     },
     "files": [
         "README.md",
-        "itr.ts",
-        "parallel.h",
-        "parallel.cpp",
-        "sg35.h",
-        "sg35.cpp",
-        "ix03.h",
-        "ix03.cpp"
+        "itr.ts"
     ],
     "testFiles": [
         "test.ts"
