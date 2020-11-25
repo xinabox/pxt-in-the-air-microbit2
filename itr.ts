@@ -225,6 +225,11 @@ namespace ITR
     let onReceivedDataHandler: (pm1: number, pm25: number, pm10: number) => void;
     // SG35 Variables end
 	
+	
+	basic.showIcon(IconNames.Chessboard)
+	
+	basic.pause(25 * 1000)
+	
 
     // SW01 function call start
 
@@ -236,7 +241,7 @@ namespace ITR
 
     // SN01 function call start
 
-        startParallel(function () {
+        control.inBackground(function () {
             while (true) {
                 parseNMEA()
                 basic.pause(10)
@@ -263,7 +268,6 @@ namespace ITR
     serial.redirect(SerialPin.P1, SerialPin.P0, 115200)
     serial.setRxBufferSize(200)
 
-    basic.showIcon(IconNames.Chessboard)
     basic.pause(2000)
     serial.writeString("ATE0" + cw01_vars.NEWLINE)
     basic.pause(300)
@@ -1432,5 +1436,9 @@ namespace ITR
             }
         }
     }
+	
+    /*function startParallel(u: () => void) {
+		control.inBackground(a);
+    }*/
 
 }
