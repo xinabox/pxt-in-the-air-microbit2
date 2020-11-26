@@ -1,6 +1,6 @@
 {
     "name": "in-the-air-microbit2",
-    "version": "0.1.12",
+    "version": "0.1.13",
     "description": "Extension for in-the-air-microbt-2 kit",
     "license": "MIT",
     "dependencies": {
